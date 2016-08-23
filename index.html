@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Reference</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -88,10 +86,12 @@
   color: #90a959;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;ruby&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,9 +101,8 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -112,7 +111,6 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -121,226 +119,119 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Wrenchmode is the fastest, easiest way to create a beautiful &ldquo;Down For Maintenance&rdquo; page for your web app. Following these basic instructions, you will have your Wrenchmode project set up in less than 5 minutes.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id="installation-as-a-heroku-addon">Installation As A Heroku Addon</h1>
+<pre class="highlight ruby"><code><span class="c1"># In your Gemfile</span>
+<span class="n">gem</span> <span class="s1">'wrenchmode-rack'</span> 
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<span class="c1"># For Ruby on Rails, add this to /config/production.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">use</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span>
 
-<h1 id="authentication">Authentication</h1>
-
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="c1"># For a Rack application, add this to your-rack-app.rb</span>
+<span class="nb">require</span> <span class="s1">'rubygems'</span> 
+<span class="nb">require</span> <span class="s1">'bundler/setup'</span> 
+<span class="no">Bundler</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:default</span><span class="p">)</span> 
+<span class="n">use</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span>
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<pre class="highlight javascript"><code><span class="c1">// Install the npm package</span>
+<span class="nx">npm</span> <span class="nx">install</span> <span class="nx">wrenchmode</span><span class="o">-</span><span class="nx">express</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<span class="c1">// In your app.js </span>
+<span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">wrenchmodeExpress</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'wrenchmode-express'</span><span class="p">);</span>
 
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">wrenchmodeExpress</span><span class="p">());</span>
 </code></pre>
 
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
+<p>(Coming soon&hellip; We&rsquo;re still in the submission process with our Addon)</p>
 
-<p>This endpoint retrieves all kittens.</p>
+<p>Add the Wrenchmode Addon in the Heroku interface. Then install the middleware layer. For Ruby/Rack, this means a Rubygem. For NodeJS/Express, this means an npm package. Finally, make sure to include the middleware layer in your application.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h1 id="manual-installation-non-heroku">Manual Installation (non-Heroku)</h1>
+<pre class="highlight ruby"><code><span class="c1"># In your Gemfile</span>
+<span class="n">gem</span> <span class="s1">'wrenchmode-rack'</span> 
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<span class="c1"># For Ruby on Rails, add this to /config/production.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">use</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span><span class="p">,</span> <span class="ss">jwt: </span><span class="s2">"copy-and-paste-the-JWT-from-your-project-page-it-will-be-long!"</span>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<span class="c1"># For a Rack application, add this to your-rack-app.rb</span>
+<span class="nb">require</span> <span class="s1">'rubygems'</span> 
+<span class="nb">require</span> <span class="s1">'bundler/setup'</span> 
+<span class="no">Bundler</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:default</span><span class="p">)</span> 
+<span class="n">use</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span><span class="p">,</span> <span class="ss">jwt: </span><span class="s2">"copy-and-paste-the-JWT-from-your-project-page-it-will-be-long!"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="c1">// Install the npm package</span>
+<span class="nx">npm</span> <span class="nx">install</span> <span class="nx">wrenchmode</span><span class="o">-</span><span class="nx">express</span>
+
+<span class="c1">// In your app.js </span>
+<span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">wrenchmodeExpress</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'wrenchmode-express'</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">wrenchmodeExpress</span><span class="p">({</span>
+  <span class="na">jwt</span><span class="p">:</span> <span class="s2">"your-really-long-jwt"</span>
+<span class="p">}));</span>
+</code></pre>
+
+<p>Install the middleware layer. For Ruby/Rack, this means a Rubygem. For NodeJS/Express, this means an npm package. Include the middleware layer in your application and configure it with your JWT, which can be found on your project page in the Wrenchmode dashboard.</p>
+
+          <h1 id="configuration-options">Configuration Options</h1>
+<pre class="highlight ruby"><code><span class="c1"># You can change these settings if necessary, but it's not recommended</span>
+<span class="n">use</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span><span class="p">,</span>
+  <span class="ss">jwt: </span><span class="s2">"your-really-long-jwt"</span><span class="p">,</span>
+  <span class="ss">force_open: </span><span class="kp">false</span><span class="p">,</span>
+  <span class="ss">ignore_test_mode: </span><span class="kp">true</span><span class="p">,</span>
+  <span class="ss">disable_local_wrench: </span><span class="kp">false</span><span class="p">,</span>
+  <span class="ss">check_delay_secs: </span><span class="mi">5</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="c1">// You can change these settings if necessary, but it's not recommended</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">wrenchmodeExpress</span><span class="p">({</span>
+  <span class="na">jwt</span><span class="p">:</span> <span class="s2">"your-really-long-jwt"</span><span class="p">,</span>
+  <span class="na">forceOpen</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">ignoreTestMode</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">disableLocalWrench</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">checkDelaySecs</span><span class="p">:</span> <span class="mi">5</span>
+<span class="p">}));</span>
+</code></pre>
+
+<p>When instantiating the middleware, you can set the following options:</p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Option</th>
+<th>Usage</th>
 <th>Default</th>
-<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
+<td>Force Open</td>
+<td>Set to true to force the middlware layer to allow all requests through, regardless of project status on Wrenchmode.com. Effectively disables the middleware.</td>
 <td>false</td>
-<td>If set to true, the result will also include cats.</td>
 </tr>
 <tr>
-<td>available</td>
+<td>Ignore Test Mode</td>
+<td>(Coming soon&hellip;) Set to false to if you want the middleware to respond to a project that is in Test mode on Wrenchmode.com This can be useful if you want to test Wrenchmode in a development or staging environment prior to deploying to production.</td>
 <td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-
-          <h1 id="errors">Errors</h1>
-
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>Disable Local Wrench</td>
+<td>(Coming soon&hellip;) Set to true if you want to disable LocalWrench mode, where the Wrenchmode page is served on your domain. Disabling it will instead force a redirect to the Wrenchmode.com domain. Note: Unless you explicitly want this behavior, it&rsquo;s best to leave this at the default.</td>
+<td>false</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>Check Delay (Seconds)</td>
+<td>Change this to modify the rate at which the middleware polls Wrenchmode for updates. Unlikely that this needs anything faster than the default.</td>
+<td>5</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
