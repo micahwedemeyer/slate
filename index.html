@@ -122,7 +122,10 @@
 <p>Wrenchmode is the fastest, easiest way to create a beautiful &ldquo;Down For Maintenance&rdquo; page for your web app. Following these basic instructions, you will have your Wrenchmode project set up in less than 5 minutes.</p>
 
 <h1 id="installation-as-a-heroku-addon">Installation As A Heroku Addon</h1>
-<pre class="highlight ruby"><code><span class="c1"># In your Gemfile</span>
+<pre class="highlight ruby"><code><span class="c1"># Install the Heroku Addon via the CLI</span>
+<span class="n">heroku</span> <span class="n">addons</span><span class="ss">:create</span> <span class="n">wrenchmode</span>
+
+<span class="c1"># In your Gemfile</span>
 <span class="n">gem</span> <span class="s1">'wrenchmode-rack'</span> 
 
 <span class="c1"># For Ruby on Rails, add this to /config/production.rb</span>
@@ -134,7 +137,10 @@
 <span class="no">Bundler</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:default</span><span class="p">)</span> 
 <span class="n">use</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="c1">// Install the npm package</span>
+<pre class="highlight javascript"><code><span class="c1">// Install the Heroku Addon via the CLI</span>
+<span class="nx">heroku</span> <span class="nx">addons</span><span class="err">:</span><span class="nx">create</span> <span class="nx">wrenchmode</span>
+
+<span class="c1">// Install the npm package</span>
 <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">wrenchmode</span><span class="o">-</span><span class="nx">express</span>
 
 <span class="c1">// In your app.js </span>
@@ -145,9 +151,11 @@
 <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">wrenchmodeExpress</span><span class="p">());</span>
 </code></pre>
 
-<p>(Coming soon&hellip; We&rsquo;re still in the submission process with our Addon)</p>
+<p>(Be patient with any issues, we&rsquo;re still in the submission process with our Addon)</p>
 
-<p>Add the Wrenchmode Addon in the Heroku interface. Then install the middleware layer. For Ruby/Rack, this means a Rubygem. For NodeJS/Express, this means an npm package. Finally, make sure to include the middleware layer in your application.</p>
+<p>Add the Wrenchmode Addon via the Heroku CLI. Then install the middleware layer. For Ruby/Rack, this means a Rubygem. For NodeJS/Express, this means an npm package. Finally, make sure to include the middleware layer in your application.</p>
+
+<p>Once everything is installed, you can go to your Heroku dashboard and click on the Wrenchmode link to log into your Wrenchmode dashboard. From there you can turn Wrenchmode on and off for your project.</p>
 
 <h1 id="manual-installation-non-heroku">Manual Installation (non-Heroku)</h1>
 <pre class="highlight ruby"><code><span class="c1"># In your Gemfile</span>
