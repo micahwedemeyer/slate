@@ -21,6 +21,9 @@ Wrenchmode is the fastest, easiest way to create a beautiful "Down For Maintenan
 # Installation As A Heroku Addon
 
 ```ruby
+# Install the Heroku Addon via the CLI
+heroku addons:create wrenchmode
+
 # In your Gemfile
 gem 'wrenchmode-rack' 
 
@@ -35,6 +38,9 @@ use Wrenchmode::Rack
 ```
 
 ```javascript
+// Install the Heroku Addon via the CLI
+heroku addons:create wrenchmode
+
 // Install the npm package
 npm install wrenchmode-express
 
@@ -46,9 +52,11 @@ var wrenchmodeExpress = require('wrenchmode-express');
 app.use(wrenchmodeExpress());
 ```
 
-(Coming soon... We're still in the submission process with our Addon)
+(Be patient with any issues, we're still in the submission process with our Addon)
 
-Add the Wrenchmode Addon in the Heroku interface. Then install the middleware layer. For Ruby/Rack, this means a Rubygem. For NodeJS/Express, this means an npm package. Finally, make sure to include the middleware layer in your application.
+Add the Wrenchmode Addon via the Heroku CLI. Then install the middleware layer. For Ruby/Rack, this means a Rubygem. For NodeJS/Express, this means an npm package. Finally, make sure to include the middleware layer in your application.
+
+Once everything is installed, you can go to your Heroku dashboard and click on the Wrenchmode link to log into your Wrenchmode dashboard. From there you can turn Wrenchmode on and off for your project.
 
 # Manual Installation (non-Heroku)
 
