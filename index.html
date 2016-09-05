@@ -128,8 +128,8 @@
 <span class="c1"># In your Gemfile</span>
 <span class="n">gem</span> <span class="s1">'wrenchmode-rack'</span> 
 
-<span class="c1"># For Ruby on Rails, add this to /config/production.rb</span>
-<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">use</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span>
+<span class="c1"># For Ruby on Rails, add this to /config/environments/production.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">insert_before</span> <span class="mi">0</span><span class="p">,</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span>
 
 <span class="c1"># For a Rack application, add this to your-rack-app.rb</span>
 <span class="nb">require</span> <span class="s1">'rubygems'</span> 
@@ -161,8 +161,8 @@
 <pre class="highlight ruby"><code><span class="c1"># In your Gemfile</span>
 <span class="n">gem</span> <span class="s1">'wrenchmode-rack'</span> 
 
-<span class="c1"># For Ruby on Rails, add this to /config/production.rb</span>
-<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">use</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span><span class="p">,</span> <span class="ss">jwt: </span><span class="s2">"copy-and-paste-the-JWT-from-your-project-page-it-will-be-long!"</span>
+<span class="c1"># For Ruby on Rails, add this to /config/environments/production.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">insert_before</span> <span class="mi">0</span><span class="p">,</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span><span class="p">,</span> <span class="ss">jwt: </span><span class="s2">"copy-and-paste-the-JWT-from-your-project-page-it-will-be-long!"</span>
 
 <span class="c1"># For a Rack application, add this to your-rack-app.rb</span>
 <span class="nb">require</span> <span class="s1">'rubygems'</span> 
