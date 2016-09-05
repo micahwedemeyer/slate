@@ -27,7 +27,7 @@ heroku addons:create wrenchmode
 # In your Gemfile
 gem 'wrenchmode-rack' 
 
-# For Ruby on Rails, add this to /config/production.rb
+# For Ruby on Rails, add this to /config/environments/production.rb
 config.middleware.insert_before 0, Wrenchmode::Rack
 
 # For a Rack application, add this to your-rack-app.rb
@@ -64,7 +64,7 @@ Once everything is installed, you can go to your Heroku dashboard and click on t
 # In your Gemfile
 gem 'wrenchmode-rack' 
 
-# For Ruby on Rails, add this to /config/production.rb
+# For Ruby on Rails, add this to /config/environments/production.rb
 config.middleware.insert_before 0, Wrenchmode::Rack, jwt: "copy-and-paste-the-JWT-from-your-project-page-it-will-be-long!"
 
 # For a Rack application, add this to your-rack-app.rb
