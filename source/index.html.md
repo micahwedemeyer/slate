@@ -22,7 +22,7 @@ Wrenchmode is the fastest, easiest way to create a beautiful "Down For Maintenan
 
 ```ruby
 # Install the Heroku Addon via the CLI
-heroku addons:create wrenchmode
+heroku addons:create wrenchmode:test
 
 # In your Gemfile
 gem 'wrenchmode-rack' 
@@ -39,7 +39,7 @@ use Wrenchmode::Rack
 
 ```javascript
 // Install the Heroku Addon via the CLI
-heroku addons:create wrenchmode
+heroku addons:create wrenchmode:test
 
 // Install the npm package
 npm install wrenchmode-express
