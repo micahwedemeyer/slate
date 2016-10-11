@@ -123,7 +123,7 @@
 
 <h1 id="installation-as-a-heroku-addon">Installation As A Heroku Addon</h1>
 <pre class="highlight ruby"><code><span class="c1"># Install the Heroku Addon via the CLI</span>
-<span class="n">heroku</span> <span class="n">addons</span><span class="ss">:create</span> <span class="n">wrenchmode</span>
+<span class="n">heroku</span> <span class="n">addons</span><span class="ss">:create</span> <span class="n">wrenchmode</span><span class="ss">:test</span>
 
 <span class="c1"># In your Gemfile</span>
 <span class="n">gem</span> <span class="s1">'wrenchmode-rack'</span> 
@@ -138,7 +138,7 @@
 <span class="n">use</span> <span class="no">Wrenchmode</span><span class="o">::</span><span class="no">Rack</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="c1">// Install the Heroku Addon via the CLI</span>
-<span class="nx">heroku</span> <span class="nx">addons</span><span class="err">:</span><span class="nx">create</span> <span class="nx">wrenchmode</span>
+<span class="nx">heroku</span> <span class="nx">addons</span><span class="err">:</span><span class="nx">create</span> <span class="nx">wrenchmode</span><span class="err">:</span><span class="nx">test</span>
 
 <span class="c1">// Install the npm package</span>
 <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">wrenchmode</span><span class="o">-</span><span class="nx">express</span>
